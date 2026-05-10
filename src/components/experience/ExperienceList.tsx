@@ -18,8 +18,13 @@ export function ExperienceList({ experiences }: ExperienceListProps) {
 
   return (
     <div className="flex flex-col gap-8">
-      {experiences.map((experience: Experience) => (
-        <ExperienceCard key={experience.company} experience={experience} />
+      {experiences.map((experience: Experience, index: number) => (
+        <div
+          key={experience.company}
+          className={index === 0 ? '' : 'border-border/60 border-t pt-8'}
+        >
+          <ExperienceCard experience={experience} />
+        </div>
       ))}
     </div>
   );

@@ -12,13 +12,16 @@ export default function Experience() {
     <Container className="mt-20">
       <SectionHeading subHeading="Featured" heading="Experience" />
       <div className="mt-4 flex flex-col gap-8">
-        {experiences.slice(0, 2).map((experience: Experience) => (
-          <ExperienceCard
-            key={experience.company}
-            experience={experience}
-            isCollapsible
-          />
-        ))}
+        {experiences
+          .slice(0, 2)
+          .map((experience: Experience, index: number) => (
+            <div
+              key={experience.company}
+              className={index === 0 ? '' : 'border-border/60 border-t pt-8'}
+            >
+              <ExperienceCard experience={experience} isCollapsible />
+            </div>
+          ))}
       </div>
       <div className="mt-8 flex justify-center">
         <Button variant="outline">

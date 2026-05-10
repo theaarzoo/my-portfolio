@@ -167,6 +167,7 @@ export function ExperienceCard({
                   key={techIndex}
                   name={technology.name}
                   href={technology.href}
+                  compact
                 >
                   {technology.icon}
                 </Skill>
@@ -175,17 +176,22 @@ export function ExperienceCard({
           </div>
 
           {/* Description */}
-          <div className="text-secondary mt-4 flex flex-col">
-            {experience.description.map(
-              (description: string, descIndex: number) => (
-                <p
-                  key={descIndex}
-                  dangerouslySetInnerHTML={{
-                    __html: ` ${parseDescription(description)}`,
-                  }}
-                />
-              ),
-            )}
+          <div className="mt-4">
+            <h4 className="mb-2 text-sm font-semibold">What I&apos;ve done</h4>
+            <ul className="text-secondary flex flex-col gap-1 text-sm">
+              {experience.description.map(
+                (description: string, descIndex: number) => (
+                  <li key={descIndex} className="flex gap-2">
+                    <span>•</span>
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: parseDescription(description),
+                      }}
+                    />
+                  </li>
+                ),
+              )}
+            </ul>
           </div>
         </div>
       )}
