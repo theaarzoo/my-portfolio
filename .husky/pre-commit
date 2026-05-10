@@ -1,5 +1,10 @@
-if command -v bunx >/dev/null 2>&1; then
+if [ -x "./node_modules/.bin/lint-staged" ]; then
+  ./node_modules/.bin/lint-staged
+elif command -v bunx >/dev/null 2>&1; then
   bunx lint-staged
-else
+elif command -v npx >/dev/null 2>&1; then
   npx --no-install lint-staged
+else
+  echo "pre-commit: lint-staged not found. Install dependencies first."
+  exit 127
 fi
