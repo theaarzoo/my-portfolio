@@ -7,16 +7,17 @@ import Figma from '@/components/technologies/Figma';
 import Html from '@/components/technologies/Html';
 import JavaScript from '@/components/technologies/JavaScript';
 import MongoDB from '@/components/technologies/MongoDB';
-import NestJs from '@/components/technologies/NestJs';
+// import NestJs from '@/components/technologies/NestJs';
 import NextJs from '@/components/technologies/NextJs';
 import NodeJs from '@/components/technologies/NodeJs';
 import PostgreSQL from '@/components/technologies/PostgreSQL';
 import Postman from '@/components/technologies/Postman';
-import Prisma from '@/components/technologies/Prisma';
+// import Prisma from '@/components/technologies/Prisma';
 import ReactIcon from '@/components/technologies/ReactIcon';
 import TailwindCss from '@/components/technologies/TailwindCss';
 import TypeScript from '@/components/technologies/TypeScript';
-import Vercel from '@/components/technologies/Vercel';
+
+// import Vercel from '@/components/technologies/Vercel';
 
 export interface Technology {
   name: string;
@@ -46,7 +47,7 @@ export const experiences: Experience[] = [
     isCurrent: true,
     isBlur: true,
     company: 'good day :3',
-    position: 'Founding Frontend Engineer',
+    position: 'Full Stack Developer',
     location: 'Canada (Remote)',
     image: '/company/promote.png',
     description: [
@@ -167,6 +168,11 @@ export const experiences: Experience[] = [
         name: 'Express',
         href: 'https://expressjs.com/',
         icon: <ExpressJs />,
+      },
+      {
+        name: 'Figma',
+        href: 'https://figma.com/',
+        icon: <Figma />,
       },
     ],
     website: 'https://bhindi.io',
