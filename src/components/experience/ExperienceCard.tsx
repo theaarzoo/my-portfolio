@@ -1,8 +1,11 @@
+'use client';
+
 import { type Experience } from '@/config/Experience';
 import { cn } from '@/lib/utils';
+import { ChevronDownIcon } from 'lucide-react';
 import { Link } from 'next-view-transitions';
 import Image from 'next/image';
-import React from 'react';
+import React, { useId, useState } from 'react';
 
 import Skill from '../common/Skill';
 import Github from '../svgs/Github';
@@ -13,15 +16,24 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
 
 interface ExperienceCardProps {
   experience: Experience;
+  isCollapsible?: boolean;
 }
 
 const parseDescription = (text: string): string => {
   return text.replace(/\*(.*?)\*/g, '<b>$1</b>');
 };
 
-export function ExperienceCard({ experience }: ExperienceCardProps) {
+export function ExperienceCard({
+  experience,
+  isCollapsible = false,
+}: ExperienceCardProps) {
+  const [isExpanded, setIsExpanded] = useState(!isCollapsible);
+  const detailsId = useId();
+
+  const showDetails = !isCollapsible || isExpanded;
+
   return (
-    <div className="flex flex-col gap-4">
+    <div className="group/card flex flex-col gap-4">
       {/* Company Header */}
       <div className="flex flex-col gap-2 md:flex-row md:justify-between">
         {/* Left Side */}
@@ -105,6 +117,29 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
                   Working
                 </div>
               )}
+              {isCollapsible && (
+                <button
+                  type="button"
+                  aria-controls={detailsId}
+                  aria-expanded={isExpanded}
+                  onClick={() => setIsExpanded((prev: boolean) => !prev)}
+                  className={cn(
+                    'text-muted-foreground hover:bg-muted hover:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 inline-flex size-6 items-center justify-center rounded-[10px] border border-transparent bg-transparent transition-all focus-visible:ring-3',
+                    'opacity-100 md:opacity-0 md:group-focus-within/card:opacity-100 md:group-hover/card:opacity-100',
+                    isExpanded && 'bg-muted text-foreground md:opacity-100',
+                  )}
+                  aria-label={
+                    isExpanded ? 'Collapse details' : 'Expand details'
+                  }
+                >
+                  <ChevronDownIcon
+                    className={cn(
+                      'size-4 transition-transform',
+                      isExpanded && 'rotate-180',
+                    )}
+                  />
+                </button>
+              )}
             </div>
             <p>{experience.position}</p>
           </div>
@@ -119,35 +154,41 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
         </div>
       </div>
 
-      {/* Technologies */}
-      <div>
-        <h4 className="text-md mt-4 mb-2 font-semibold">Technologies</h4>
-        <div className="flex flex-wrap gap-2">
-          {experience.technologies.map((technology, techIndex: number) => (
-            <Skill
-              key={techIndex}
-              name={technology.name}
-              href={technology.href}
-            >
-              {technology.icon}
-            </Skill>
-          ))}
-        </div>
-      </div>
+      {showDetails && (
+        <div id={detailsId} className="animate-in fade-in-0 duration-200">
+          {/* Technologies */}
+          <div>
+            <h4 className="text-md mt-4 mb-2 font-semibold">
+              Technologies & Tools
+            </h4>
+            <div className="flex flex-wrap gap-2">
+              {experience.technologies.map((technology, techIndex: number) => (
+                <Skill
+                  key={techIndex}
+                  name={technology.name}
+                  href={technology.href}
+                >
+                  {technology.icon}
+                </Skill>
+              ))}
+            </div>
+          </div>
 
-      {/* Description */}
-      <div className="text-secondary flex flex-col">
-        {experience.description.map(
-          (description: string, descIndex: number) => (
-            <p
-              key={descIndex}
-              dangerouslySetInnerHTML={{
-                __html: `• ${parseDescription(description)}`,
-              }}
-            />
-          ),
-        )}
-      </div>
+          {/* Description */}
+          <div className="text-secondary mt-4 flex flex-col">
+            {experience.description.map(
+              (description: string, descIndex: number) => (
+                <p
+                  key={descIndex}
+                  dangerouslySetInnerHTML={{
+                    __html: ` ${parseDescription(description)}`,
+                  }}
+                />
+              ),
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
