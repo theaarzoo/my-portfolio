@@ -8,8 +8,8 @@ import Container from './Container';
 export default function Footer() {
   return (
     <footer className="border-border bg-muted/30 mt-24 border-t">
-      <Container className="max-w-5xl py-12">
-        <div className="flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between sm:gap-8">
+      <Container className="py-12">
+        <div className="grid gap-10 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start sm:gap-8">
           <div className="flex flex-col gap-4">
             <p className="text-muted-foreground text-xs font-medium tracking-[0.24em] uppercase">
               {footerConfig.sections.nav}
@@ -48,7 +48,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-border mt-10 flex flex-col gap-2 border-t pt-8 text-sm sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+        <div className="border-border mt-10 grid gap-2 border-t pt-8 text-sm sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:gap-4">
           <p className="text-muted-foreground">
             &copy; {new Date().getFullYear()} {footerConfig.developer}.{' '}
             {footerConfig.copyright}
@@ -57,7 +57,7 @@ export default function Footer() {
           {/* <p className="text-muted-foreground">
             You&apos;re the <span className="text-primary font-medium">37,139th</span> visitor
           </p> */}
-          <p className="text-muted-foreground">
+          <p className="text-muted-foreground sm:text-right">
             {footerConfig.text}{' '}
             <span className="text-primary font-medium">
               {footerConfig.developer}
