@@ -158,6 +158,30 @@ export const pageMetadata: Record<string, PageMeta> = {
     ogImage: '/meta/setup.png',
     twitterCard: 'summary_large_image',
   },
+
+  '/books': {
+    title: 'Books - Reading List',
+    description:
+      'A curated reading list of books that have influenced my thinking, growth, and approach to work.',
+    keywords: [
+      'books',
+      'reading list',
+      'recommendations',
+      'personal growth',
+      'influential books',
+    ],
+    ogImage: '/meta/blogs.png',
+    twitterCard: 'summary_large_image',
+  },
+
+  '/movies': {
+    title: 'Movies - Films and Shows',
+    description:
+      'A curated collection of movies and shows that have inspired, entertained, and shaped my perspective.',
+    keywords: ['movies', 'shows', 'watchlist', 'recommendations', 'films'],
+    ogImage: '/meta/blogs.png',
+    twitterCard: 'summary_large_image',
+  },
 };
 
 // Helper function to get metadata for a specific page

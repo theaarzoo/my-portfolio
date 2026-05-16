@@ -1,4 +1,4 @@
-import { journeyItems } from '@/config/Journey';
+import { personalLinks } from '@/config/Personal';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'next-view-transitions';
 import React from 'react';
@@ -12,16 +12,11 @@ export default function Personal() {
     <Container className="mt-10">
       <SectionHeading heading="Personal" />
       <div className="mt-8 flex flex-col gap-4">
-        {journeyItems.map((item) => (
+        {personalLinks.map((item) => (
           <Link className="group" href={item.href} key={item.name}>
-            <Card className="flex flex-row items-center justify-between gap-4 px-4 py-2">
-              <div className="bg-muted flex items-center justify-center rounded-md p-2">
-                {(() => {
-                  const Icon = item.icon as React.ComponentType<{
-                    className?: string;
-                  }>;
-                  return <Icon className="size-4" />;
-                })()}
+            <Card className="border-border/80 hover:border-border hover:bg-muted/30 flex flex-row items-center justify-between gap-4 px-4 py-3 transition-all duration-200 hover:-translate-y-0.5">
+              <div className="bg-muted flex items-center justify-center rounded-md p-2 transition-transform duration-200 group-hover:scale-105">
+                <item.icon className="size-4" />
               </div>
               <div className="flex w-full flex-col">
                 <h3 className="text-base font-semibold">{item.name}</h3>
@@ -29,7 +24,7 @@ export default function Personal() {
                   {item.description}
                 </p>
               </div>
-              <ArrowRight className="hidden size-4 transition-all duration-300 group-hover:block" />
+              <ArrowRight className="text-muted-foreground group-hover:text-foreground size-4 shrink-0 opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100" />
             </Card>
           </Link>
         ))}
