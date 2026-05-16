@@ -10,7 +10,7 @@ import { Card } from '../ui/card';
 export default function Personal() {
   return (
     <Container className="mt-10">
-      <SectionHeading subHeading="Personal" heading="Projects" />
+      <SectionHeading heading="Personal" />
       <div className="mt-8 flex flex-col gap-4">
         {journeyItems.map((item) => (
           <Link className="group" href={item.href} key={item.name}>
