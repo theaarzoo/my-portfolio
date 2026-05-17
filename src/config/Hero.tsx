@@ -54,8 +54,9 @@ export const skillComponents = {
 export const heroConfig = {
   // Personal Information
   name: 'Md. Aarzoo Alam',
-  title: 'A Full Stack Developer.',
+  title: 'Software Engineer',
   avatar: '/assets/logo.png',
+  tagline: 'Polymath',
 
   // Skills Configuration
   skills: [

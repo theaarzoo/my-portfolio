@@ -25,9 +25,9 @@ const setup = [
 
 export default function Setup() {
   return (
-    <Container className="mt-10">
+    <Container className="mt-8 md:mt-10">
       <SectionHeading heading="Development" />
-      <div className="mt-8 flex flex-col gap-4">
+      <div className="mt-6 flex flex-col gap-3">
         {setup.map((item) => (
           <Link className="group" href={item.href} key={item.name}>
             <Card className="border-border/80 hover:border-border hover:bg-muted/30 flex flex-row items-center justify-between gap-4 px-4 py-3 transition-all duration-200 hover:-translate-y-0.5">

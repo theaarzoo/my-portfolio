@@ -7,14 +7,14 @@ export const quotes = [
     quote: `Most people are other people. Their thoughts are someone else's opinions, their lives a mimicry, their passions a quotation.`,
     author: 'Oscar Wilde',
   },
-  {
-    quote: `Man is made by his belief. As he believes, so he is.`,
-    author: 'Bhagavad Gita',
-  },
-  {
-    quote: `Arise, awake, and stop not till the goal is reached.`,
-    author: 'Katha Upanishad',
-  },
+  // {
+  //   quote: `Man is made by his belief. As he believes, so he is.`,
+  //   author: 'Bhagavad Gita',
+  // },
+  // {
+  //   quote: `Arise, awake, and stop not till the goal is reached.`,
+  //   author: 'Katha Upanishad',
+  // },
   {
     quote: `That which does not kill us makes us stronger.`,
     author: 'Friedrich Nietzsche',

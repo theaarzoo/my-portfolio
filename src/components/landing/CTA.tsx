@@ -61,9 +61,9 @@ export default function CTA({
 
   return (
     <>
-      <Container className="mt-20 rounded-md border border-dashed border-black/20 py-8 dark:border-white/10">
-        <div className="mt-6 w-full flex-col px-6 pb-8 sm:flex sm:items-center sm:justify-between sm:px-12">
-          <p className="mb-4 text-center text-base opacity-50 sm:mb-3 md:text-xl">
+      <Container className="mt-14 rounded-md border border-dashed border-black/20 py-6 md:mt-16 dark:border-white/10">
+        <div className="w-full flex-col px-6 py-2 sm:flex sm:items-center sm:justify-between sm:px-10">
+          <p className="mb-4 text-center text-base opacity-50 sm:mb-0 md:text-lg">
             {preText}
           </p>
           <div className="mt-4 flex w-full justify-center sm:mt-0 sm:w-auto sm:justify-end">

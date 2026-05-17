@@ -26,13 +26,13 @@ export type MovieItem = {
 export const personalLinks: PersonalLink[] = [
   {
     name: 'Books',
-    description: 'Books that have influenced my thinking and growth.',
+    description: 'Books that have influenced my thinking.',
     href: '/books',
     icon: BookOpen,
   },
   {
     name: 'Movies',
-    description: 'Films and shows that have inspired and entertained me.',
+    description: 'Films and shows that I liked and entertained me.',
     href: '/movies',
     icon: Clapperboard,
   },
@@ -40,8 +40,7 @@ export const personalLinks: PersonalLink[] = [
 
 export const booksConfig = {
   title: 'Books',
-  description:
-    'A collection of books that have influenced my thinking and growth.',
+  description: 'A collection of books that have influenced my thinking.',
   categories: [
     {
       title: 'Power & Influence',
@@ -86,7 +85,7 @@ export const booksConfig = {
 
 export const moviesConfig = {
   title: 'Movies',
-  description: 'Movies and shows that have inspired and entertained me.',
+  description: 'Movies and shows that I liked and entertained me.',
   items: [
     {
       title: 'Ford v Ferrari',

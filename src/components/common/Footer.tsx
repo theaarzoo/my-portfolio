@@ -7,8 +7,8 @@ import Container from './Container';
 
 export default function Footer() {
   return (
-    <footer className="border-border bg-muted/30 mt-24 border-t">
-      <Container className="py-12">
+    <footer className="border-border bg-muted/30 mt-10 border-t md:mt-12">
+      <Container className="py-10">
         <div className="grid gap-10 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start sm:gap-8">
           <div className="flex flex-col gap-4">
             <p className="text-muted-foreground text-xs font-medium tracking-[0.24em] uppercase">
