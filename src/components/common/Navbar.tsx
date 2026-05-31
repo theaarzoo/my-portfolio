@@ -4,6 +4,7 @@ import { Link } from 'next-view-transitions';
 import React from 'react';
 
 import Container from './Container';
+import GlobalSearch from './GlobalSearch';
 import { ThemeToggleButton } from './ThemeSwitch';
 
 export default function Navbar() {
@@ -33,6 +34,7 @@ export default function Navbar() {
           </div>
         </div>
         <div className="flex items-center gap-4">
+          <GlobalSearch />
           <ThemeToggleButton variant="circle" start="top-right" blur />
         </div>
       </div>

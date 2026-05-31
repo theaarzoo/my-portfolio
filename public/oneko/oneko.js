@@ -19,8 +19,16 @@
   let idleTime = 0;
   let idleAnimation = null;
   let idleAnimationFrame = 0;
+  let isSleepingForced = false;
+  let avatarIndex = 0;
 
   const nekoSpeed = 10;
+  const avatarFilters = [
+    'none',
+    'hue-rotate(48deg) saturate(1.1)',
+    'hue-rotate(210deg) saturate(1.15)',
+    'grayscale(1) contrast(1.08) brightness(1.02)',
+  ];
   const spriteSets = {
     idle: [[-3, -3]],
     alert: [[-7, -3]],
@@ -104,6 +112,8 @@
     nekoEl.style.backgroundImage = `url(${nekoFile})`;
 
     document.body.appendChild(nekoEl);
+    applyAvatarFilter();
+    setupController();
 
     document.addEventListener('mousemove', function (event) {
       mousePosX = event.clientX;
@@ -133,6 +143,25 @@
   function setSprite(name, frame) {
     const sprite = spriteSets[name][frame % spriteSets[name].length];
     nekoEl.style.backgroundPosition = `${sprite[0] * 32}px ${sprite[1] * 32}px`;
+  }
+
+  function applyAvatarFilter() {
+    nekoEl.style.filter = avatarFilters[avatarIndex];
+  }
+
+  function setupController() {
+    window.onekoController = {
+      toggleSleep() {
+        isSleepingForced = !isSleepingForced;
+        if (!isSleepingForced) {
+          resetIdleAnimation();
+        }
+      },
+      nextAvatar() {
+        avatarIndex = (avatarIndex + 1) % avatarFilters.length;
+        applyAvatarFilter();
+      },
+    };
   }
 
   function resetIdleAnimation() {
@@ -198,6 +227,12 @@
 
   function frame() {
     frameCount += 1;
+
+    if (isSleepingForced) {
+      setSprite('sleeping', Math.floor(frameCount / 6));
+      return;
+    }
+
     const diffX = nekoPosX - mousePosX;
     const diffY = nekoPosY - mousePosY;
     const distance = Math.sqrt(diffX ** 2 + diffY ** 2);

@@ -78,7 +78,7 @@ export default function Hero() {
   };
 
   return (
-    <Container>
+    <Container id="home" className="scroll-mt-24">
       <div className="flex flex-col gap-6 md:gap-7">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
           <Image

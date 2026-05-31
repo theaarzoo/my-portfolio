@@ -9,7 +9,7 @@ import { Button } from '../ui/button';
 
 export default function Experience() {
   return (
-    <Container className="mt-14 md:mt-16">
+    <Container id="experience" className="mt-14 scroll-mt-24 md:mt-16">
       <SectionHeading subHeading="Featured" heading="Experience" />
       <div className="mt-4 flex flex-col gap-6">
         {experiences

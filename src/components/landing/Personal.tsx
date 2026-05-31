@@ -9,7 +9,7 @@ import { Card } from '../ui/card';
 
 export default function Personal() {
   return (
-    <Container className="mt-8 md:mt-10">
+    <Container id="personal" className="mt-8 scroll-mt-24 md:mt-10">
       <SectionHeading heading="Personal" />
       <div className="mt-6 flex flex-col gap-3">
         {personalLinks.map((item) => (

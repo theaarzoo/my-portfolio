@@ -173,6 +173,15 @@
   filter: blur(3px);
 }
 
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
 /* Removed global View Transition API overrides to allow Skiper toggle styles to apply */
 
 /* Custom button inner shadow */

@@ -25,7 +25,7 @@ const setup = [
 
 export default function Setup() {
   return (
-    <Container className="mt-8 md:mt-10">
+    <Container id="development" className="mt-8 scroll-mt-24 md:mt-10">
       <SectionHeading heading="Development" />
       <div className="mt-6 flex flex-col gap-3">
         {setup.map((item) => (
