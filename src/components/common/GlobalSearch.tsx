@@ -22,6 +22,8 @@ import {
   portfolioGithubUrl,
   portfolioSpotifyUrl,
 } from '@/config/GlobalSearch';
+import type { OnekoCtrl } from '@/config/Oneko';
+import { useDialogLock } from '@/hooks/use-dialog-lock';
 import { cn } from '@/lib/utils';
 import { Search } from 'lucide-react';
 import { useTheme } from 'next-themes';
@@ -30,10 +32,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 declare global {
   interface Window {
-    onekoController?: {
-      nextAvatar: () => void;
-      toggleSleep: () => void;
-    };
+    onekoController?: OnekoCtrl;
   }
 }
 
@@ -115,32 +114,7 @@ export default function GlobalSearch() {
     return () => window.cancelAnimationFrame(frameId);
   }, [isOpen]);
 
-  useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-    const previousHtmlOverflow = html.style.overflow;
-    const previousBodyOverflow = body.style.overflow;
-    const lenis = (
-      window as Window & {
-        lenis?: {
-          start?: () => void;
-          stop?: () => void;
-        };
-      }
-    ).lenis;
-
-    if (isOpen) {
-      html.style.overflow = 'hidden';
-      body.style.overflow = 'hidden';
-      lenis?.stop?.();
-    }
-
-    return () => {
-      html.style.overflow = previousHtmlOverflow;
-      body.style.overflow = previousBodyOverflow;
-      lenis?.start?.();
-    };
-  }, [isOpen]);
+  useDialogLock(isOpen);
 
   const recordRecentItem = useCallback((itemId: string) => {
     setRecentItemIds((previousRecentItemIds) => {
@@ -220,7 +194,7 @@ export default function GlobalSearch() {
           return;
         }
         case 'change-oneko-avatar': {
-          window.onekoController?.nextAvatar();
+          window.onekoController?.openPicker();
           return;
         }
       }

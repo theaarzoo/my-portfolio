@@ -243,9 +243,9 @@ const actionItems: GlobalSearchItem[] = [
   },
   {
     id: 'action-oneko-avatar',
-    label: 'Change Oneko Avatar',
-    description: 'Cycle to the next neko variant',
-    keywords: ['oneko', 'avatar', 'cat'],
+    label: 'Choose Oneko Avatar',
+    description: 'Open the neko variant picker',
+    keywords: ['oneko', 'avatar', 'cat', 'picker', 'variant'],
     icon: Image,
     group: 'actions',
     actionId: 'change-oneko-avatar',
