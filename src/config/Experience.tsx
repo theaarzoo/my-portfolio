@@ -49,7 +49,7 @@ export const experiences: Experience[] = [
     company: 'good day :3',
     position: 'Full Stack Developer',
     location: 'Canada (Remote)',
-    image: '/company/promote.png',
+    image: '/company/iterationmatrix.jpg',
     description: [
       'Developed and deployed B2B payments and accounts payable (AP) solutions, improving transaction success rates by 75% and reducing reconciliation time for clients by 50%',
       'Led a comprehensive codebase refactoring initiative that improved maintainability, scalability, and development velocity across the entire platform.',
@@ -109,7 +109,7 @@ export const experiences: Experience[] = [
     company: 'TechFanatic',
     position: 'Full Stack Developer',
     location: 'Surat, India (On-Site)',
-    image: '/company/upsurge.png',
+    image: '/company/techfanatic.png',
     description: [
       'Developed & Coordinated 13+ end-to-end projects using a diverse technology stack—proficient in front-end frameworks (HTML, CSS, Bootstrap, JavaScript, React.js) and back-end platforms (Node.js, Express.js,). Leveraged both relational and non-relational databases while implementing robust RESTful and GraphQL APIs',
       'Optimized server management and CI/CD pipelines using Docker and cloud platforms (AWS, Azure), cutting operational costs by 40%',
