@@ -3,7 +3,7 @@
 (async function oneko() {
   const scriptEl = document.getElementById('oneko-script');
   const fallbackVariants = [
-    { id: 'classic', label: 'Classic' },
+    { id: 'mishubu', label: 'mishubu' },
     { id: 'dog', label: 'Dog' },
     { id: 'tora', label: 'Tora' },
     { id: 'maia', label: 'Maia' },
@@ -55,7 +55,7 @@
     grabbing = false,
     grabStop = true,
     nudge = false,
-    variant = 'classic';
+    variant = 'mishubu';
 
   function parseLocalStorage(key, fallback) {
     try {
@@ -68,7 +68,7 @@
   }
 
   function getAssetSrc(id) {
-    return id === 'classic' ? '/oneko/oneko.gif' : `/oneko/oneko-${id}.gif`;
+    return id === 'mishubu' ? '/oneko/oneko.gif' : `/oneko/oneko-${id}.gif`;
   }
 
   function clampX(x) {
@@ -210,10 +210,10 @@
   }
 
   function create() {
-    variant = parseLocalStorage('variant', 'classic');
+    variant = parseLocalStorage('variant', 'mishubu');
 
     if (!variantIds.includes(variant)) {
-      variant = variantIds[0] ?? 'classic';
+      variant = variantIds[0] ?? 'mishubu';
     }
 
     nekoEl.id = 'oneko';
